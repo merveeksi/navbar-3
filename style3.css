@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;                  /*esnek kutu*/
+    justify-content: center;        /*esnek öge*/
+    align-items: center;
+    background-color: #D1DBBD;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;                /*esnek ögeler sarılır. Üstteki satırla birlikte kullanılır*/
+}
+
+ul li{
+    list-style: none;               /*liste işaretleri kaldırıldı*/
+}
+
+ul li a{
+    text-decoration: none;          /*alt çizgi kaldırıldı*/
+    font-weight: bolder;            /*yazılar daha kalın*/
+    color: #3E606F;
+    font-size: 30px;
+    display: block;
+    padding: 25px 30px;
+    position: relative;
+}
+
+ul li a::before{
+    content: "^";                  /*linklerin başına işaretçi eklendi*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #193441;
+    transform: scaleX(0);          /*kutuların üstündeki hareketli çizgiler*/
+    transform-origin: left;
+    transition: all 0.5s;
+}
+
+ul li a::after{
+    content: "";                 /*parantez içine eklenen sol alt köşeye yazdırılır*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #193441;
+    transform: scaleX(0);          /*kutuların altındaki hareketli çizgiler*/
+    transform-origin: right;       /*taban yerleşimi*/
+    transition: all 0.5s;
+}
+
+ul li a:hover::before,
+ul li a:hover::after{
+    transform: scaleX(1);          /*kutuların etrafındaki hareketli çizgiler*/
+}
